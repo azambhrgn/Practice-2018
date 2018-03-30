@@ -6,7 +6,14 @@ import org.springframework.stereotype.Component;
 public class Tree {
 
 	public int num;
-	Tree left,right;
+	public Tree left,right;
 	
+	public Tree() {
+		
+	}
+	
+	public Tree(int num) {
+		this.num = num;
+	}
 	
 }

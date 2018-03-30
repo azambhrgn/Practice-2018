@@ -1,47 +1,57 @@
 package com.base.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-
 import com.base.Tree;
-import com.base.TreeMain;
 
+public class TreeBasic{
 
-@Service
-public class TreeBasic implements TreeMain {
-
-	@Autowired
 	Tree root;
-	
-	@Override
+
+	public Tree getRoot() {
+		return root;
+	}
+
+	public void setRoot(Tree root) {
+		this.root = root;
+	}
+
 	public void createTree() {
 		// TODO Auto-generated method stub
-
+		if (root == null) {
+		}
 	}
 
-	@Override
-	public void insert() {
+	public Tree insert(Tree root, int num) {
 		// TODO Auto-generated method stub
 
+		if (root == null) {
+			Tree temp = new Tree(num);
+			return temp;
+		} else if (root.num > num) {
+			root.left = insert(root.left, num);
+		} else {
+			root.right = insert(root.right, num);
+		}
+
+		return root;
 	}
 
-	@Override
 	public void delete() {
 		// TODO Auto-generated method stub
 
 	}
 
-	@Override
-	public void display() {
+	public void display(Tree temp) {
 		// TODO Auto-generated method stub
-		System.out.println(root.num);
+		if (temp != null) {
+			display(temp.left);
+			System.out.println(temp.num);
+			display(temp.right);
+		}
 	}
 
-	
 	public void constructiveMethod() {
-		//New message
-		
+		// New message
+
 	}
-	
+
 }
