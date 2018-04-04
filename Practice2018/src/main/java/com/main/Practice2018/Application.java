@@ -1,5 +1,7 @@
 package com.main.Practice2018;
 
+import java.util.ArrayList;
+
 import org.springframework.context.annotation.ComponentScan;
 
 import com.base.Tree;
@@ -13,8 +15,8 @@ public class Application {
 		//ApplicationContext ctx = SpringApplication.run(Application.class, args);
 
 		Tree root = tree.insert(null, 10);
-		root = tree.insert(root, 15);
-		root = tree.insert(root, 25);
+		root = tree.insert(root, 4);
+		root = tree.insert(root, 6);
 		root = tree.insert(root, 20);
 		root = tree.insert(root, 8);
 		root = tree.insert(root, 5);
@@ -28,9 +30,9 @@ public class Application {
 		*/
 		//tree.display(root,1);
 		System.out.println("*************************");
-		/*tree.display(root,2);
+		/*tree.display(root,2);*/
 		System.out.println("*************************");
-		tree.display(root,3);*/
+		tree.display(root,3);
 		
 		
 		//height of the tree
@@ -49,5 +51,10 @@ public class Application {
 
 		System.out.println("******print ancestor of node****");
 		tree.printAncestor(root, num);
+		System.out.println("Sum tree");
+		System.out.println(tree.sumTree(root));
+		
+		System.out.println("Root to leaf");
+		//tree.rootToLeafPath(root, new int[], 0);
 	}
 }
