@@ -202,4 +202,33 @@ public class TreeBasic {
 		rootToLeafPath(root.left, ar, i);
 		rootToLeafPath(root.right, ar, i);
 	}
+	
+	//CHeck if Identical
+	public boolean checkIdentical(Tree r1, Tree r2) {
+		if(r1 == null && r2 == null) {
+			return true;
+		}
+		if(r1 == null || r2 == null) {
+			return false;
+		}
+		
+		if(r1.num == r2.num && checkIdentical(r1.left, r2.left) && checkIdentical(r1.right, r2.right)) {
+			return true;
+		}
+		
+		return false;
+	}
+	
+	public boolean isHightBalanced(Tree root) {
+		if(root == null) {
+			return true;
+		}
+		int l = height(root.left);
+		int r = height(root.right);
+		if( Math.abs(l-r) == 1 && isHightBalanced(root.left) && isHightBalanced(root.right) ) {
+			return true;
+		}
+		
+		return false;
+	}
 }

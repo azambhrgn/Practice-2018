@@ -2,9 +2,12 @@ package com.main.Practice2018;
 
 import java.util.ArrayList;
 
+import org.omg.CosNaming.IstringHelper;
 import org.springframework.context.annotation.ComponentScan;
 
+import com.base.SList;
 import com.base.Tree;
+import com.base.impl.ListBasic;
 import com.base.impl.TreeBasic;
 
 public class Application {
@@ -56,5 +59,31 @@ public class Application {
 		
 		System.out.println("Root to leaf");
 		//tree.rootToLeafPath(root, new int[], 0);
+		
+		Tree root1 = tree.insert(null, 10);
+		root1 = tree.insert(root1, 4);
+		root1 = tree.insert(root1, 6);
+		root1 = tree.insert(root1, 20);
+		
+		System.out.println("Is identical " + tree.checkIdentical(root, root1));
+		
+		System.out.println("Is height balanced " + tree.isHightBalanced(root));
+		
+		
+		
+		System.out.println("**********************************************************");
+		
+		ListBasic list = new ListBasic();
+		SList head = list.insert(null, 10);
+		head = list.insert(head, 9);
+		head = list.insert(head, 8);
+		head = list.insert(head, 7);
+		head = list.insert(head, 6);
+		head = list.insert(head, 5);
+		
+		list.displayList(head);
+		head  = list.reverseList(head);
+		
+		list.displayList(head);
 	}
 }
